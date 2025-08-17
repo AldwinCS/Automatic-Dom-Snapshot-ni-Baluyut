@@ -15,7 +15,7 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const stealth = StealthPlugin();
 puppeteer.use(stealth);
 
-const SCRAPER_API_PROXY_PASS = "7da5ad6d770b7b61561f8c0edd49150b";
+const SCRAPER_API_PROXY_PASS = "5b5b3cdd1ff92fa8787983b58a13dbc9";
 
 let browser;
 async function launchBrowser(proxy = null) {
