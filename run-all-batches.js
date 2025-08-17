@@ -39,12 +39,12 @@ for (const { file } of allBatchFiles) {
   console.log(`\n🚀 Scanning: ${file}`);
 
   try {
+    // Run scanner_add.js for each batch file
     execSync(`node scanner_add.js "${filePath}"`, { stdio: "inherit" });
     console.log(`✅ Done: ${file}`);
   } catch (error) {
     console.error(`❌ Error scanning ${file}: ${error.message || error}`);
     failures.push(file);
-    continue;
   }
 }
 
@@ -53,4 +53,7 @@ console.log("\n===== SUMMARY =====");
 console.log(`Total Files: ${allBatchFiles.length}`);
 console.log(`Succeeded : ${allBatchFiles.length - failures.length}`);
 console.log(`Failed    : ${failures.length}`);
-if (failures.length) console.log("❌ Failed files:", failures.join(", "));
+if (failures.length) {
+  console.log("❌ Failed files:");
+  failures.forEach((f) => console.log(" -", f));
+}
