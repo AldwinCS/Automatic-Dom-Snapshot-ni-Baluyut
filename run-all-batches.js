@@ -16,7 +16,7 @@ const validFiles = fs
       index: parseInt(match[1], 10),
     };
   })
-  .filter(({ index }) => index >= 11 && index <= 15)
+  .filter(({ index }) => index === 11 || index === 12)
   .sort((a, b) => a.index - b.index);
 
 if (validFiles.length === 0) {
